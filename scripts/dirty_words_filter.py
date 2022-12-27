@@ -3,11 +3,13 @@ import os
 
 def read_words() -> set:
     """Read file and :return dirty words in set"""
-    dirty_words_path = '../resources/dirty-words.txt'
+    dirty_words_path = "../resources/dirty-words.txt"
     if not os.path.exists(dirty_words_path):
-        raise FileNotFoundError("Файла с матом по пути " + dirty_words_path + " не существует!")
-    file = open(dirty_words_path, 'r', encoding='UTF-8')
-    return set(file.read().split('\n'))
+        raise FileNotFoundError(
+            "Файла с матом по пути " + dirty_words_path + " не существует!"
+        )
+    file = open(dirty_words_path, "r", encoding="UTF-8")
+    return set(file.read().split("\n"))
 
 
 def review_message(message: str) -> bool:
@@ -17,5 +19,3 @@ def review_message(message: str) -> bool:
         if word in message:
             return False
     return True
-
-
